@@ -1,4 +1,58 @@
-﻿<!-- Placeholder draw.io file. Open in draw.io to create the visual ERD. -->
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <mxfile host="app.diagrams.net">
-  <diagram name="ERD">Placeholder ERD - open in draw.io to edit</diagram>
+  <diagram name="ERD">
+    <mxGraphModel dx="1000" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Entities -->
+        <mxCell id="user" value="User&#xa;PK: user_id&#xa;first_name&#xa;last_name&#xa;email&#xa;role" style="shape=rectangle;fillColor=#FFEECC;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="50" y="50" width="160" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="property" value="Property&#xa;PK: property_id&#xa;host_id(FK)&#xa;title&#xa;price_per_night" style="shape=rectangle;fillColor=#CCEEFF;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="300" y="50" width="160" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="address" value="Address&#xa;PK: address_id&#xa;property_id(FK)&#xa;street&#xa;city" style="shape=rectangle;fillColor=#EEFFCC;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="550" y="50" width="160" height="120" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="booking" value="Booking&#xa;PK: booking_id&#xa;property_id(FK)&#xa;guest_id(FK)&#xa;start_date&#xa;end_date" style="shape=rectangle;fillColor=#FFCCEE;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="300" y="250" width="160" height="140" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="payment" value="Payment&#xa;PK: payment_id&#xa;booking_id(FK)&#xa;amount" style="shape=rectangle;fillColor=#CCFFEE;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="550" y="250" width="160" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="review" value="Review&#xa;PK: review_id&#xa;booking_id(FK)&#xa;reviewer_id(FK)&#xa;rating" style="shape=rectangle;fillColor=#FFEEFF;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="50" y="250" width="160" height="100" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="amenity" value="Amenity&#xa;PK: amenity_id&#xa;name" style="shape=rectangle;fillColor=#EECCCC;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="50" y="450" width="160" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="propertyamenity" value="PropertyAmenity&#xa;PK: property_id + amenity_id" style="shape=rectangle;fillColor=#CCCCEE;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="300" y="450" width="160" height="80" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="photo" value="Photo&#xa;PK: photo_id&#xa;property_id(FK)&#xa;url" style="shape=rectangle;fillColor=#EECCFF;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="550" y="450" width="160" height="80" as="geometry"/>
+        </mxCell>
+
+        <!-- Relationships -->
+        <mxCell id="r1" style="edgeStyle=elbowEdgeStyle;rounded=0;" edge="1" parent="1" source="user" target="booking"/>
+        <mxCell id="r2" style="edgeStyle=elbowEdgeStyle;rounded=0;" edge="1" parent="1" source="property" target="booking"/>
+        <mxCell id="r3" style="edgeStyle=elbowEdgeStyle;rounded=0;" edge="1" parent="1" source="booking" target="payment"/>
+        <mxCell id="r4" style="edgeStyle=elbowEdgeStyle;rounded=0;" edge="1" parent="1" source="booking" target="review"/>
+        <mxCell id="r5" style="edgeStyle=elbowEdgeStyle;rounded=0;" edge="1" parent="1" source="property" target="propertyamenity"/>
+        <mxCell id="r6" style="edgeStyle=elbowEdgeStyle;rounded=0;" edge="1" parent="1" source="amenity" target="propertyamenity"/>
+        <mxCell id="r7" style="edgeStyle=elbowEdgeStyle;rounded=0;" edge="1" parent="1" source="property" target="photo"/>
+        <mxCell id="r8" style="edgeStyle=elbowEdgeStyle;rounded=0;" edge="1" parent="1" source="property" target="address"/>
+      </root>
+    </mxGraphModel>
+  </diagram>
 </mxfile>
