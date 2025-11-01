@@ -1,4 +1,5 @@
--- subqueries.sql
+﻿-- Task 1: Practice Subqueries
+
 -- 1) Non-correlated subquery: find properties with avg rating > 4.0
 SELECT p.id AS property_id, p.title AS property_title
 FROM properties p
