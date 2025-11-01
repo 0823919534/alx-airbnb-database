@@ -13,7 +13,7 @@ SELECT u.id AS user_id, u.name AS user_name, b.id AS booking_id, b.property_id, 
 FROM users u
 FULL OUTER JOIN bookings b ON b.user_id = u.id;
 
--- Fallback UNION for DBs without FULL OUTER JOIN
+-- UNION fallback for DBs without FULL OUTER JOIN
 SELECT u.id AS user_id, u.name AS user_name, b.id AS booking_id, b.property_id, b.start_date, b.end_date
 FROM users u
 LEFT JOIN bookings b ON b.user_id = u.id
