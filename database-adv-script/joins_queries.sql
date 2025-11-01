@@ -3,17 +3,17 @@ SELECT b.id AS booking_id, b.user_id, u.id AS user_id, u.name AS user_name
 FROM bookings b
 INNER JOIN users u ON b.user_id = u.id;
 
--- 2) LEFT JOIN: all properties and their reviews (including properties with no reviews)
+-- 2) LEFT JOIN: all properties and their reviews
 SELECT p.id AS property_id, p.title AS property_title, r.id AS review_id, r.rating, r.comment
 FROM properties p
 LEFT JOIN reviews r ON r.property_id = p.id;
 
--- 3) FULL OUTER JOIN: all users and all bookings (even if no booking or user)
+-- 3) FULL OUTER JOIN: all users and all bookings
 SELECT u.id AS user_id, u.name AS user_name, b.id AS booking_id, b.property_id, b.start_date, b.end_date
 FROM users u
 FULL OUTER JOIN bookings b ON b.user_id = u.id;
 
--- Fallback for DBs without FULL OUTER JOIN (UNION workaround)
+-- Fallback UNION for DBs without FULL OUTER JOIN
 SELECT u.id AS user_id, u.name AS user_name, b.id AS booking_id, b.property_id, b.start_date, b.end_date
 FROM users u
 LEFT JOIN bookings b ON b.user_id = u.id
