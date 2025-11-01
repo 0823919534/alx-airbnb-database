@@ -1,4 +1,6 @@
 ﻿# database-adv-script
 
-This directory contains the SQL file for the 'Write Complex Queries with Joins' assignment.
-File: joins_queries.sql
+This folder contains SQL queries for assignment '0. Write Complex Queries with Joins'.
+
+Files:
+- joins_queries.sql — includes INNER JOIN, LEFT JOIN, and FULL OUTER JOIN (plus UNION workaround)
